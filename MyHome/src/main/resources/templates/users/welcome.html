@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome, User!</title>
+</head>
+<body>
+<h1> this is your personal page</h1>
+<br>
+<br>
+
+<div>
+    <p th:text = "${user_info}" > this writing is visible in browser only when there`s no variables </p>
+</div>
+
+<div th:each="house : ${houses}">
+    <a th:href="@{/house/{id}(id=${house.getId()})}" th:text="${house.getName()}">house</a>
+</div>
+<br>
+<a th:href="@{/logout}">Log Out</a>
+
+</body>
+
+
+
+
+</html>

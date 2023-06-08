@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Подробная информация о доме</title>
+</head>
+<body>
+<br>
+<br>
+
+<p>
+    <header3> Информация о  доме: </header3>
+</p>
+<br>
+<br>
+<p th:text="'Name of the house: '+ ${house.getName()}">VALUE</p>
+<p th:text= "'Id of the house:  ' + ${house.getId()}">VALUE</p>
+<p th:text="'Address of the house:  '+ ${house.getAddress()}">VALUE</p>
+<p th:text="'Name of the rekuperator:  '+ ${rekuperator.getName()}">VALUE</p>
+<p th:text="'Name of kotelnaya:  '+ ${kotelnaya.getName()}">VALUE</p>
+<!--<p th:text="'Owner`s username:  '+ ${username.getName()}">VALUE</p>-->
+<br>
+<a th:href="@{/rekuperator/{id}(id=${rekuperator.getId()})}" th:text="${rekuperator.getName()}">рекуператор</a>
+
+<br>
+<a th:href="@{/kotelnaya/{id}(id=${kotelnaya.getId()})}" th:text="${kotelnaya.getName()}">Котельная</a>
+<br>
+
+<br>
+<br>
+
+<div th:each="gate : ${gates}">
+    <a th:href="@{/gate/{id}(id=${gate.getId()})}" th:text="${gate.getName()}">gates</a>
+</div>
+
+-
+<br>
+<a th:href="@{/{id}/edit(id=${house.getId()})}">edit house</a>
+
+
+</body>
+</html>

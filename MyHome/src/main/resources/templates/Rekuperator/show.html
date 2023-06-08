@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Подробная информация о рекуператоре</title>
+</head>
+<body>
+<br>
+<br>
+
+<p>
+    <header3> Общая информация о  рекуператоре: </header3>
+</p>
+<br>
+<br>
+<p th:text="'Name of the rekuperator:  '+ ${rekuperator.getName()}">VALUE</p>
+<br>
+<br>
+
+<a th:href="/rekuperator/show" th:text="recuperator page">рекуператор</a>
+<br>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to the page of user`s house!</title>
+</head>
+<body>
+<p>
+    A CONCRETE HOUSE of CURRENT user!
+</p>
+
+<div th:each="house : ${houses}">
+    <a th:href="@{/house/{id}(id=${house.getId()})}" th:text="${house.getName()}">house</a>
+</div>
+
+<p>
+    Переменная  house создается в модели контроллера
+</p>
+
+
+<a href = "/house/create">Create new house</a> or <a href = "/exit">Exit button</a>
+
+
+
+
+</body>
+</html>

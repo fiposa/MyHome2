@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to the gate page!</title>
+</head>
+<body>
+<p>
+    Gate information:
+</p>
+<p th:text="'Name of the gate: '+ ${gate.getName()}">VALUE</p>
+<p th:text="'Gate is open right now: '+ ${gate.isGateOpen()}">VALUE</p>
+
+<p>
+
+</p>
+
+
+
+<br>
+<a th:href="@{/{id}/edit(id=${gate.getId()})}">edit gates</a>
+
+
+<!--<p th:text="'Name of the gate: '+ ${gate.getGateName()}">VALUE</p>-->
+<!--<p th:text= "'Id of the gate:  ' + ${gate.getId()}">VALUE</p>-->
+<!--<p th:text="'Is gate open:  '+ ${gate.isGateOpen}">VALUE</p>-->
+<!--<p th:text="'Name of the house: '+ ${gate.getHouse.getName}">VALUE</p>-->
+
+</body>
+</html>
