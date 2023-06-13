@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/room")
-public class RoomController {
+public class ApiRoomController {
 
     @GetMapping("/")
      String HelloApi(){

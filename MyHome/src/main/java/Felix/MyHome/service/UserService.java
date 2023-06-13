@@ -4,8 +4,10 @@ import Felix.MyHome.model.User;
 import Felix.MyHome.repository.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 
 public class UserService {
 

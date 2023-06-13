@@ -9,21 +9,30 @@
     Please fill out the gate form
 </p>
 
-<form th:method="POST" th:action="@{/gates}" th:object="${gate}">
-    <label for="gateName">Enter gateName: </label>
-    <input type="text" th:field="*{gateName}" id="gateName"/>
+<form th:method="POST" th:action="@{/gate}" th:object="${gate}">
+    <label for="name">Enter name of the gate: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <br/>
+    <br/>
+<!--    <label for="gateIsOpen">Enter name of the gate: </label>-->
+<!--    <input type="text" th:field="*{gateIsOpen}" id="gateIsOpen"/>-->
     <br/>
     <br/>
     Please select your house
     <br/>
     <br/>
-
-
-
     <select th:object="${gate}" th:field="*{house}" id="house">
         <option th:each="house : ${houses}" th:value="${house.getId()}" th:text="${house.getName()}"> </option>
 
     </select>
+    <br/>
+    Please select status of the gate
+    <select th:object="${gate}" th:field="*{gateOpen}" id="gateOpen">
+        <option th:value="1" > Gate is open </option>
+        <option th:value="0" > Gate is closed </option>
+
+    </select>
+
 
     <input type="submit" value="Create gate!" />
 </form>
@@ -31,7 +40,7 @@
 <br/>
 
 
-<a href = "/gates/"> gates page </a> or <a href = "/exit">Exit button</a>
+<a href = "/gate/"> gates page </a> or <a href = "/exit">Exit button</a>
 
 
 </body>

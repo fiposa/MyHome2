@@ -21,6 +21,18 @@ public class MyHomeApplication {
 										GatesRepository gatesRepository, RekuperatorRepository rekuperatorRepository,
 										KotelnayaRepository kotelnayaRepository) {
 		return args -> {
+//			roomRepository.save(new Room("room1",1500,1200,
+//					true,rekuperatorRepository.findRekuperatorById(1)));
+//			roomRepository.save(new Room("room2",200,12200,
+//					true,rekuperatorRepository.findRekuperatorById(1)));
+//			roomRepository.save(new Room("room3",15300,12040,
+//					true,rekuperatorRepository.findRekuperatorById(1)));
+//			roomRepository.save(new Room("room4",1500,1200,
+//					true,rekuperatorRepository.findRekuperatorById(2)));
+//			roomRepository.save(new Room("room5",1500,1200,
+//					true,rekuperatorRepository.findRekuperatorById(2)));
+//			roomRepository.save(new Room("room6",15060,12060,
+//					true,rekuperatorRepository.findRekuperatorById(2)));
 
 			//System.out.println(gatesRepository.findGateByHouseId(2));
 			//System.out.println(rekuperatorRepository.findRekuperatorByHouse_Id(1));
@@ -50,7 +62,7 @@ public class MyHomeApplication {
 
 //			houseRepository.save(new House("House2",null,
 //					"Lenina525", null,null));
-
+//
 //			gatesRepository.save(new Gate("Vrata1",false,
 //					houseRepository.findById(1).orElse(null) ));
 //

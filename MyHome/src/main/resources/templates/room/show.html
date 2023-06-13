@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Подробная информация о комнате</title>
+</head>
+<body>
+<br>
+<br>
+
+<p>
+    <header3> Информация о комнате: </header3>
+</p>
+<br>
+<br>
+<p th:text="'Name of the room: '+ ${room.getName()}">VALUE</p>
+<p th:text= "'CO2 level planned:  ' + ${room.getCo2LevelPlan()}">VALUE</p>
+<p th:text= "'CO2 level in fact:  ' + ${room.getCo2LevelFact()}">VALUE</p>
+<p th:text="'Is the valve open:  '+ ${room.isValvesAreOpen()}">VALUE</p>
+
+
+<br>
+
+<br>
+
+<br>
+<a th:href="@{/{id}/edit(id=${room.getId()})}">edit parameters of the room</a>
+
+
+</body>
+</html>

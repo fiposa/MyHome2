@@ -16,22 +16,21 @@ public class RekuperatorController {
 
     private final RekuperatorService rekuperatorService;
     private final RoomService roomService;
-    private final HouseService houseService;
 
 
-    public RekuperatorController(RekuperatorService rekuperatorService, RoomService roomService, HouseService houseService) {
+    public RekuperatorController(RekuperatorService rekuperatorService, RoomService roomService) {
         this.rekuperatorService = rekuperatorService;
         this.roomService = roomService;
-        this.houseService = houseService;
 
     }
 
-    @GetMapping("/show/{id}")
+    @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model){
         model.addAttribute("rekuperator", rekuperatorService.findRekuperatorById(id));
+        model.addAttribute("rooms", roomService.findRoomsByRekuperatorId(id));
 
 
-        return "/reku";
+        return "/rekuperator/show";
     }
 
 

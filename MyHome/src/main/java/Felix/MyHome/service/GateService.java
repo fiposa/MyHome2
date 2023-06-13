@@ -14,7 +14,7 @@ public class GateService {
 
     public final GatesRepository gatesRepository;
 
-    @Autowired
+
 
     public GateService(GatesRepository gatesRepository) {
         this.gatesRepository = gatesRepository;

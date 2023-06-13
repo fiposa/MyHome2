@@ -3,8 +3,10 @@ package Felix.MyHome.service;
 import Felix.MyHome.model.Rekuperator;
 import Felix.MyHome.repository.RekuperatorRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class RekuperatorService {
 
     private final RekuperatorRepository rekuperatorRepository;

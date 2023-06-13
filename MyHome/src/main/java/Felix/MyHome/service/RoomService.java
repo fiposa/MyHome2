@@ -19,17 +19,12 @@ public class RoomService {
         this.room = room;
     }
 
-    public List<Room> findRoomsByRekuperatorId (int id){
-        return null;//roomRepository.findRoomsByRecuperatorId(id);
-    }
-
-    public Optional<Room>  changeValue(Integer Co2LevelMaxValue, Integer Co2LevelMinValue,
-                                       Optional<Room> room){
-        room.get().setCo2LevelMax(Co2LevelMaxValue);
-        room.get().setCo2LevelMin(Co2LevelMinValue);
-
-        return room;
-    }
+   public Optional <Room> findRoomById (int id){
+        return roomRepository.findRoomById(id);
+   }
+   public List<Room> findRoomsByRekuperatorId (int id){
+        return roomRepository.findRoomsByRekuperatorId(id);
+   }
 
 
 

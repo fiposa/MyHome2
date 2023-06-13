@@ -4,6 +4,8 @@ package Felix.MyHome.model;
 import jakarta.persistence.*;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @Table
 @Entity
@@ -16,14 +18,18 @@ public class Rekuperator {
 
     private String name;
 
+    @OneToMany (mappedBy = "rekuperator",fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    private List <Room> rooms;
+
     @OneToOne(mappedBy = "rekuperator")
     private House house;
 
     public Rekuperator() {
     }
 
-    public Rekuperator(String name, House house) {
+    public Rekuperator(String name, List<Room> rooms, House house) {
         this.name = name;
+        this.rooms = rooms;
         this.house = house;
     }
 
@@ -43,6 +49,14 @@ public class Rekuperator {
         this.name = name;
     }
 
+    public List<Room> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(List<Room> rooms) {
+        this.rooms = rooms;
+    }
+
     public House getHouse() {
         return house;
     }
@@ -56,6 +70,7 @@ public class Rekuperator {
         return "Rekuperator{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", rooms=" + rooms +
                 ", house=" + house.getName() +
                 '}';
     }

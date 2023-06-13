@@ -10,5 +10,6 @@ import java.util.Optional;
 @Repository
 @Transactional
 public interface RoomRepository extends JpaRepository<Room, Integer> {
-    //public List<Room> findRoomsByRecuperatorId (int id);
+    public List<Room> findRoomsByRekuperatorId (int id);
+    public Optional <Room> findRoomById (int id);
 }

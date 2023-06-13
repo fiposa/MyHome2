@@ -17,8 +17,13 @@
 <br>
 <br>
 
-<a th:href="/rekuperator/show" th:text="recuperator page">рекуператор</a>
+<!--<a th:href="/rekuperator/show" th:text="recuperator page">рекуператор</a>-->
 <br>
+
+<div th:each="room : ${rooms}">
+    <a th:href="@{/room/{id}(id=${room.getId()})}" th:text="${room.getName()}">комната</a>
+</div>
+
 
 
 

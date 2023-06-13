@@ -14,7 +14,7 @@ public class Gate {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "gate_name")
+    @Column(name = "name")
     @NotBlank
     private String name;
 

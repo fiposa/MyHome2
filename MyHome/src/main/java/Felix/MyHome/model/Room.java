@@ -17,34 +17,33 @@ public class Room {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "room_name")
+    @Column(name = "name")
     @NotBlank
-    private String roomName;
+    private String name;
 
     ///@JsonView(View.User.class) Можем скрыть видимость некоторых параметров для некоторых пользователей
+
 
     @Column(name = "co2_level_fact")
     private int co2LevelFact;
 
-    @Column(name = "co2_level_min")
-    private int co2LevelMin;
+    @Column(name = "co2_level_plan")
+    private int co2LevelPlan;
 
-    @Column(name = "co2_level_max")
-    private int co2LevelMax;
+
 
     @Column(name = "valves_are_open")
     private boolean valvesAreOpen;
 
 
-    @ManyToOne (fetch = FetchType.LAZY)
+    @ManyToOne (fetch = FetchType.EAGER)
 
     private Rekuperator rekuperator;
 
-    public Room(String roomName, int co2LevelFact, int co2LevelMin, int co2LevelMax, boolean valvesAreOpen, Rekuperator rekuperator) {
-        this.roomName = roomName;
+    public Room(String name, int co2LevelFact, int co2LevelPlan, boolean valvesAreOpen, Rekuperator rekuperator) {
+        this.name = name;
         this.co2LevelFact = co2LevelFact;
-        this.co2LevelMin = co2LevelMin;
-        this.co2LevelMax = co2LevelMax;
+        this.co2LevelPlan = co2LevelPlan;
         this.valvesAreOpen = valvesAreOpen;
         this.rekuperator = rekuperator;
     }
@@ -60,12 +59,12 @@ public class Room {
         this.id = id;
     }
 
-    public String getRoomName() {
-        return roomName;
+    public String getName() {
+        return name;
     }
 
-    public void setRoomName(String roomName) {
-        this.roomName = roomName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getCo2LevelFact() {
@@ -76,20 +75,12 @@ public class Room {
         this.co2LevelFact = co2LevelFact;
     }
 
-    public int getCo2LevelMin() {
-        return co2LevelMin;
+    public int getCo2LevelPlan() {
+        return co2LevelPlan;
     }
 
-    public void setCo2LevelMin(int co2LevelMin) {
-        this.co2LevelMin = co2LevelMin;
-    }
-
-    public int getCo2LevelMax() {
-        return co2LevelMax;
-    }
-
-    public void setCo2LevelMax(int co2LevelMax) {
-        this.co2LevelMax = co2LevelMax;
+    public void setCo2LevelPlan(int co2LevelPlan) {
+        this.co2LevelPlan = co2LevelPlan;
     }
 
     public boolean isValvesAreOpen() {
@@ -100,11 +91,24 @@ public class Room {
         this.valvesAreOpen = valvesAreOpen;
     }
 
-    public Rekuperator getRecuperator() {
+    public Rekuperator getRekuperator() {
         return rekuperator;
     }
 
-    public void setRecuperator(Rekuperator rekuperator) {
+    public void setRekuperator(Rekuperator rekuperator) {
         this.rekuperator = rekuperator;
     }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", co2LevelFact=" + co2LevelFact +
+                ", co2LevelPlan=" + co2LevelPlan +
+                ", valvesAreOpen=" + valvesAreOpen +
+                ", rekuperator=" + rekuperator.getName() +
+                '}';
+    }
+
 }

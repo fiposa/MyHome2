@@ -15,7 +15,7 @@
 <div th:each="gate : ${gates}">
     <a th:href="@{/gate/{id}(id=${gate.getId()})}" th:text="${gate.getName()}">gate</a>
 </div>
-<a href = "/gates/new">Create new gate</a> or <a href = "/exit">Exit button</a>
+<a href = "/gate/new">Create new gate</a> or <a href = "/exit">Exit button</a>
 
 
 </body>

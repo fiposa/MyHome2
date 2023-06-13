@@ -13,4 +13,5 @@ public interface GatesRepository extends JpaRepository <Gate, Integer> {
     public List<Gate> findGateByHouseId (int id);
     public List<Gate> findGateById (int id);
 
+
 }

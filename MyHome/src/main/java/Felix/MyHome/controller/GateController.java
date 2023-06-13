@@ -16,14 +16,14 @@ public class GateController {
     private final GateService gateService;
     private final HouseService houseService;
 
-    @Autowired
+
 
     public GateController(GateService gateService, HouseService houseService) {
         this.gateService = gateService;
         this.houseService = houseService;
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public String index(Model model) {
         model.addAttribute("gates", gateService.viewAllGates());
         System.out.println("should have seen gates page.");
@@ -46,10 +46,10 @@ public class GateController {
 
         return "/gate/new";
     }
-    @PostMapping("/")
+    @PostMapping("")
     public String create (@ModelAttribute ("gate") Gate gate){
         gateService.save(gate);
-        return "redirect:/gate/";
+        return "redirect:/gate";
 
     }
 
