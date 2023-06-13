@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New gate creation page!</title>
+</head>
+<body>
+<p>
+    Please fill out the gate form
+</p>
+
+<form th:method="POST" th:action="@{/gate/{id}(id=${gate.getId})}" th:object="${gate}">
+    <input type="hidden" name="_method" value="PATCH">
+    <label for="name">Enter name of the gate: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <br/>
+    <br/>
+    Please select your house
+    <br/>
+    <br/>
+    <select th:object="${gate}" th:field="*{house}" id="house">
+        <option th:each="house : ${houses}" th:value="${house.getId()}"
+                th:text="${house.getName()}"> </option>
+    </select>
+    <br/>
+    <br>
+    Please select status of the gate
+    <select th:object="${gate}" th:field="*{gateOpen}" id="gateOpen">
+        <option th:value="1" > Gate is open </option>
+        <option th:value="0" > Gate is closed </option>
+    </select>
+    <input type="submit" value="Update gate!" />
+</form>
+
+<br/>
+<br>
+
+
+<a href = "/gate/"> gates page </a> or <a href = "/exit">Exit button</a>
+
+
+</body>
+</html>

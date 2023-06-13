@@ -41,27 +41,35 @@ public class GateService {
         System.out.println("Gates created");
     }
 
-    @Transactional
-    public void openGate (int id, Gate updatedGate){
-        updatedGate.setId(id);
-        updatedGate.setGateOpen(true);
-        gatesRepository.save(updatedGate);
-        System.out.println("Gates " +updatedGate.getName()+ " are open");
-    }
 
-    @Transactional
-    public void closeGate (int id, Gate updatedGate){
-        updatedGate.setId(id);
-        updatedGate.setGateOpen(false);
-        gatesRepository.save(updatedGate);
-        System.out.println("Gates " +updatedGate.getName()+ " are closed");
-    }
+
 
     @Transactional
     public void deleteGate (int id){
         gatesRepository.deleteById(id);
         System.out.println("Gates  are deleted");
     }
+    @Transactional
+    public void update (int id, Gate updatedGate){
+        Gate gateToBeUpdated = findGateById(id);
+        gateToBeUpdated.setName(updatedGate.getName());
+        gateToBeUpdated.setHouse(updatedGate.getHouse());
+        gateToBeUpdated.setGateOpen(updatedGate.isGateOpen());
+    }
+
+    @Transactional
+    public void open (int id, Gate updatedGate){
+        Gate gateToBeUpdated = findGateById(id);
+        gateToBeUpdated.setGateOpen(true);
+        System.out.println("Gates " +gateToBeUpdated.getName()+ " are opened");
+    }
+    @Transactional
+    public void close (int id, Gate updatedGate){
+        Gate gateToBeUpdated = findGateById(id);
+        gateToBeUpdated.setGateOpen(false);
+        System.out.println("Gates " +gateToBeUpdated.getName()+ " are closed");
+    }
+
 
 
 
