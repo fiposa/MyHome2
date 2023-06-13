@@ -1,11 +1,14 @@
 package Felix.MyHome.model;
 
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Arrays;
 import java.util.Collection;
+@Configuration
+
 //Тут отображаемая через контроллер инфа о пользователе (типа DAO)
 public class SecurityUser implements UserDetails {
 
@@ -30,6 +33,15 @@ public class SecurityUser implements UserDetails {
 
 
     public String getEmail(){return  user.getEmail();} //Добавил кастомно
+
+
+    public String getRole (){
+        return user.getRole();
+    }
+
+    public User getUser() {
+        return user;
+    }
 
     @Override // список ролей
     public Collection<? extends GrantedAuthority> getAuthorities() {

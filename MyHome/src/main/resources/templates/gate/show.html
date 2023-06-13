@@ -5,26 +5,30 @@
     <title>Welcome to the gate page!</title>
 </head>
 <body>
-<header1> Gate information </header1>
-<p th:text="'Name of the gate: '+ ${gate.getName()}">VALUE</p>
-<td th:text="${gate.isGateOpen()} ? 'GATE IS FORCE OPEN  NOW' : 'GATE IS FORCE CLOSED NOW'" />
-<br>
-<br>
-<a th:href="@{gate/{id}/edit(id=${gate.getId()})}">edit current gate</a>
-<br>
-<br/>
-<form th:method="DELETE" th:action="@{/gate/{id}/delete(id=${gate.getId()})}" >
-<input type="submit" value="delete this gate">
-</form>
-<br>
-<br>
-<form th:method="PATCH" th:action="@{/gate/{id}/open(id=${gate.getId()})}" >
+    <header3> Gate information </header3>
+    <p th:text="'Role of the current user: '+ ${role}">VALUE</p>
+    <p th:text="'Name of the gate: '+ ${gate.getName()}">VALUE</p>
+    <p th:text="${gate.isGateOpen()} ? 'GATE IS FORCE OPEN  NOW' : 'GATE IS FORCE CLOSED NOW'">/p>
+    <br>
+    <p>Методы для удаления и изменения отображаются только админам </p>
+    <br>
+    <span th:if="${role == 'ROLE_ADMIN'}">
+        <form th:method="DELETE" th:action="@{/gate/{id}/delete(id=${gate.getId()})}" >
+        <input type="submit" value="delete this gate"></form>
+        <br>
+        <br/><a th:href="@{gate/{id}/edit(id=${gate.getId()})}">edit current gate</a>
+    </span>
+    <br>
+    <br>
+    <p>
+    <form th:method="PATCH" th:action="@{/gate/{id}/open(id=${gate.getId()})}" >
     <input type="submit" value="open this gate">
-</form>
-<br>
-<br>
-<form th:method="PATCH" th:action="@{/gate/{id}/close(id=${gate.getId()})}" >
+    </form>
+    </p>
+    <br>
+    <br>
+    <form th:method="PATCH" th:action="@{/gate/{id}/close(id=${gate.getId()})}" >
     <input type="submit" value="close this gate">
-</form>
+    </form>
 </body>
 </html>

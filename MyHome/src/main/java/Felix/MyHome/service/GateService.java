@@ -1,8 +1,8 @@
 package Felix.MyHome.service;
 
 import Felix.MyHome.model.Gate;
+import Felix.MyHome.model.SecurityUser;
 import Felix.MyHome.repository.GatesRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,11 +11,7 @@ import java.util.List;
 @Service
 @Transactional //(readOnly = true)//для методов, которые изменяют, просто добавляем отдельную аннотацию @Transactional
 public class GateService {
-
-    public final GatesRepository gatesRepository;
-
-
-
+    private final GatesRepository gatesRepository;
     public GateService(GatesRepository gatesRepository) {
         this.gatesRepository = gatesRepository;
     }
@@ -40,10 +36,6 @@ public class GateService {
         gatesRepository.save(gate);
         System.out.println("Gates created");
     }
-
-
-
-
     @Transactional
     public void deleteGate (int id){
         gatesRepository.deleteById(id);
@@ -56,7 +48,6 @@ public class GateService {
         gateToBeUpdated.setHouse(updatedGate.getHouse());
         gateToBeUpdated.setGateOpen(updatedGate.isGateOpen());
     }
-
     @Transactional
     public void open (int id, Gate updatedGate){
         Gate gateToBeUpdated = findGateById(id);
@@ -69,9 +60,5 @@ public class GateService {
         gateToBeUpdated.setGateOpen(false);
         System.out.println("Gates " +gateToBeUpdated.getName()+ " are closed");
     }
-
-
-
-
 
 }
