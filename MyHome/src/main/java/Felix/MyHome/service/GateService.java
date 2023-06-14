@@ -60,5 +60,12 @@ public class GateService {
         gateToBeUpdated.setGateOpen(false);
         System.out.println("Gates " +gateToBeUpdated.getName()+ " are closed");
     }
+    @Transactional
+    public void delay (int id, Gate updatedGate){
+        Gate gateToBeUpdated = findGateById(id);
+        gateToBeUpdated.setDelay(updatedGate.getDelay());
+        System.out.println("Gate delay updated");
+    }
+
 
 }

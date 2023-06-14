@@ -6,13 +6,17 @@
 </head>
 <body>
 <p>
-    Please fill out the gate form
+    <header3>Please fill out the gate form</header3>
 </p>
 
 <form th:method="POST" th:action="@{/gate/{id}(id=${gate.getId})}" th:object="${gate}">
     <input type="hidden" name="_method" value="PATCH">
     <label for="name">Enter name of the gate: </label>
     <input type="text" th:field="*{name}" id="name"/>
+    <br/>
+    <br/>
+    <label for="delay">Enter delay time for closinh the gate in seconds </label>
+    <input type="number" th:field="*{delay}" id="delay"/>
     <br/>
     <br/>
     Please select your house
@@ -29,6 +33,8 @@
         <option th:value="1" > Gate is open </option>
         <option th:value="0" > Gate is closed </option>
     </select>
+    <br>
+    <br>
     <input type="submit" value="Update gate!" />
 </form>
 

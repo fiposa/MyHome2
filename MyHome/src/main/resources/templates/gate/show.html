@@ -5,9 +5,10 @@
     <title>Welcome to the gate page!</title>
 </head>
 <body>
-    <header3> Gate information </header3>
+    <header1> Gate information </header1>
     <p th:text="'Role of the current user: '+ ${role}">VALUE</p>
     <p th:text="'Name of the gate: '+ ${gate.getName()}">VALUE</p>
+    <p th:text="'Delay time in seconds: '+ ${gate.getDelay()}">VALUE</p>
     <p th:text="${gate.isGateOpen()} ? 'GATE IS FORCE OPEN  NOW' : 'GATE IS FORCE CLOSED NOW'">/p>
     <br>
     <p>Методы для удаления и изменения отображаются только админам </p>
@@ -30,5 +31,14 @@
     <form th:method="PATCH" th:action="@{/gate/{id}/close(id=${gate.getId()})}" >
     <input type="submit" value="close this gate">
     </form>
+    <br>
+    <br>
+    <form th:method="PATCH" th:action="@{/gate/{id}/delay(id=${gate.getId})}" th:object="${gate}">
+        <input type="hidden" name="_method" value="PATCH">
+        <label for="delay">Enter delay time for closing the gate </label>
+        <input type="number" th:field="*{delay}" id="delay"/>
+        <input type="submit" value="set new delay" />
+    </form>
+
 </body>
 </html>

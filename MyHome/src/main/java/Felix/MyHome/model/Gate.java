@@ -2,6 +2,7 @@ package Felix.MyHome.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -21,6 +22,10 @@ public class Gate {
     @Column (name = "gate_open")
     private boolean gateOpen;
 
+    @Column (name = "delay")
+    @NotNull
+    private int delay; //Время задержки для открытия/закрытия ворот
+
 
     @ManyToOne
     private House house;
@@ -30,10 +35,19 @@ public class Gate {
     public Gate() {
     }
 
-    public Gate(String name, boolean gateOpen, House house) {
+    public Gate(String name, boolean gateOpen, int delay, House house) {
         this.name = name;
         this.gateOpen = gateOpen;
+        this.delay = delay;
         this.house = house;
+    }
+
+    public int getDelay() {
+        return delay;
+    }
+
+    public void setDelay(int delay) {
+        this.delay = delay;
     }
 
     public int getId() {
@@ -74,6 +88,7 @@ public class Gate {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", gateOpen=" + gateOpen +
+                ", delay=" + delay +
                 ", house=" + house.getName() +
                 '}';
     }

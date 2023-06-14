@@ -63,8 +63,7 @@ public class MyHomeApplication {
 //			houseRepository.save(new House("House2",null,
 //					"Lenina525", null,null));
 //
-//			gatesRepository.save(new Gate("Vrata1",false,
-//					houseRepository.findById(1).orElse(null) ));
+		//	gatesRepository.save(new Gate("vrata1",true,30,null));
 //
 //			gatesRepository.save(new Gate("Vrata2",true,
 //					houseRepository.findById(2).orElse(null) ));

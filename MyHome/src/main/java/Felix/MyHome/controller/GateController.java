@@ -81,6 +81,12 @@ public class GateController {
         gateService.close(id, gate);
         return "redirect:/gate/{id}";
     }
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
+    @PatchMapping ("/{id}/delay")
+    public String delay (@PathVariable ("id") int id, @ModelAttribute ("gate") Gate gate){
+        gateService.delay(id, gate);
+        return "redirect:/gate/{id}";
+    }
 
 }
 
